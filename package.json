@@ -3,10 +3,11 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
-    "storybook": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\" \"cpx packages/**/stories/**/*.stories.mdx dist/packages -v -w\"",
+    "storybook": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\" \"npm run copy-stories -- --watch\"",
     "storybook:build": "tsc && build-storybook",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "copy-stories": "copy-and-watch \"packages/**/!(dist)/stories/*.mdx\" \"dist/packages\""
   },
   "dependencies": {
     "lit-element": "^2.4.0",
@@ -24,7 +25,7 @@
     "@web/test-runner": "^0.12.19",
     "commitizen": "^4.2.3",
     "concurrently": "^5.3.0",
-    "cpx": "^1.5.0",
+    "copy-and-watch": "^0.1.5",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^7.2.0",
