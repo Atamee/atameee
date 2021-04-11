@@ -6,7 +6,7 @@
     "storybook": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds -c .storybook/server.mjs\" \"cpx packages/**/stories/**/*.stories.mdx dist/packages -v -w\"",
     "storybook:build": "tsc && build-storybook",
     "prepare": "husky install",
-    "copy": "cpx packages/**/!(dist)/**/*.stories.mdx dist/packages -v"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "lit-element": "^2.4.0",
