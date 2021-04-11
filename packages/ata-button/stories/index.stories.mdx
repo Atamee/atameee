@@ -1,0 +1,38 @@
+import { html, TemplateResult } from 'lit-html';
+import { Meta, Story, Canvas, ArgsTable } from '@web/storybook-prebuilt/addon-docs/blocks.js';
+import '../dist/ata-button.js';
+
+<Meta title="Components/Button" component={'ata-button'} />
+
+# Button
+
+This is a demo showing the button component
+
+<Canvas>
+  <Story name="Primary" args={{
+    title: 'Hello world'
+  }}>
+    {(args) => {
+      return html`
+        <ata-button .title=${args.title}>
+          <span>slot content</span>
+        </ata-button>
+      `;
+    }}
+  </Story>
+</Canvas>
+
+## Level 2 heading
+
+- a list
+- of things
+- to be
+- listed
+
+[A link somewhere](./foo.js)
+
+## Code block
+
+```js
+console.log('Hello world');
+```
