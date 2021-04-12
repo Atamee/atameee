@@ -2,19 +2,33 @@ import { html, TemplateResult } from 'lit-html';
 import { Meta, Story, Canvas, ArgsTable } from '@web/storybook-prebuilt/addon-docs/blocks.js';
 import '../ata-button.js';
 
-<Meta title="Components/Button" component={'ata-button'} />
+<Meta title="Components/Button"
+  component={'ata-button'}
+  argTypes={{
+    title: {},
+    onClick: {
+      action: 'clicked',
+      table: {
+        disable: true
+      }
+    }
+  }}
+></Meta>
 
 # Buttons
 
 This is a demo showing the button component
 
 <Canvas>
-  <Story name="Primary" args={{
-    title: 'Hello world'
-  }}>
+  <Story name="Primary"
+    args={{
+      title: 'Hello world'
+    }}
+  >
     {(args) => {
+      console.log(args);
       return html`
-        <ata-button .title=${args.title}>
+        <ata-button @click=${args.onClick} .title=${args.title}>
           <span>slot content</span>
         </ata-button>
       `;
